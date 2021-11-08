@@ -40,6 +40,21 @@ function displayCurrentWeather(response) {
   document.querySelector("#wind").innerHTML = `${response.data.wind.speed}km/h`;
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].main;
+  document
+    .querySelector("#current-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#current-icon")
+    .setAttribute("alt", response.data.weather[0].description);
+  document.querySelector("#temp-max").innerHTML = Math.round(
+    response.data.main.temp_max
+  );
+  document.querySelector("#temp-min").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
 }
 
 function searchCity(city) {

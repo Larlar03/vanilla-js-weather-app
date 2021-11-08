@@ -6,6 +6,7 @@ body {
   margin: 0 auto;
   color: #333135;
   font-size: 16px;
+
   main {
     max-width: 600px;
     margin: 0 auto;
@@ -96,7 +97,7 @@ body {
         justify-content: center;
         align-items: center;
         img {
-          width: 40%;
+          width: 30%;
         }
       }
     }
@@ -132,18 +133,27 @@ body {
           li {
             display: inline;
             padding: 1px;
-            span {
+            .max-degree {
               display: inline-block;
               font-size: 0.7rem;
               margin-top: 2px;
               vertical-align: top;
               font-weight: 600;
+              color: #4f9485;
+            }
+            .min-degree {
+              display: inline-block;
+              font-size: 0.7rem;
+              margin-top: 2px;
+              vertical-align: top;
+              font-weight: 600;
+              color: #7ab8ab;
             }
           }
-          .forecast-high {
+          #temp-max {
             color: #4f9485;
           }
-          .forecast-low {
+          #temp-min {
             color: #7ab8ab;
           }
         }
