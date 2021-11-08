@@ -17,158 +17,117 @@
   </head>
   <body>
     <main>
-      <div class="container" id="container">
-        <div class="row">
-          <div class="col-7" id="left-side">
-            <div class="form-container">
-              <form id="search-form">
-                <div class="input-group">
-                  <input
-                    id="search-text-input"
+      <!--First Row-->
+      <div class="row">
+        <div class="col-12">
+          <div class="form-container">
+            <form id="search-form">
+                   <input
+                    id="search-input"
                     type="text"
                     class="form-control"
-                    placeholder="London..."
+                    placeholder="Enter a location..."
                     aria-label="city"
                     aria-describedby="button-addon2"
                     autofocus="on"
                   />
-                  <input
-                    type="submit"
-                    class="btn btn-outline-primary"
-                    id="current-button"
-                  />
-                </div>
-                <button
-                  class="btn btn-outline-success"
-                  id="current-location-button"
+                   <button
+                  class=" btn btn-outline"
+                  id="search-button"
+
                 >
-                  Temporary Current Location Button
+Submit                </button>
+                    <button
+                  class="btn btn-outline"
+                  id="current-location-button"
+                >L
+                  
                 </button>
-              </form>
-            </div>
-            <div id="weather-card">
+
+                </div>
+            </form>
+          </div>
+        </div>
+        <!--Second Row-->
+        <div class="Row--">
+          <div class="col-12" id="weather-card">
+            <div id="weather-information">
               <h2 id="current-date"></h2>
               <h1 id="city"></h1>
-              <h2 id="description"></h2>
-
-              <img src="src/Sun-cloud.png" alt="sun cloud" />
-
-              <p>
+                <p>
                 <span id="current-temp"></span>
                 <span class="degree-units">
-                  <a class="celsius-link" href="#">°C</a> |
+                  <a class="celsius-link" href="#">°C</a> /
                   <a class="fahrenheit-link" href="#">°F</a>
                 </span>
               </p>
               <ul>
+                <li id="weather-description"></li>
                 <li>
                   Humidity <span id="humidity" class="purple-text"></span>
                 </li>
                 <li>Wind <span id="wind" class="purple-text"></span></li>
               </ul>
             </div>
-          </div>
-          <div class="col-1"></div>
-          <div class="col-4" id="right-side">
-            <div class="day">
-              <div class="info">
-                <ul>
-                  <li>Monday</li>
-                  <li class="day-temp">
-                    16<span class="day-degrees">°C</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="icon">
-                <img src="src/Sun-cloud.png" alt="sun cloud" />
-              </div>
-            </div>
-            <div class="day">
-              <div class="info">
-                <ul>
-                  <li>Monday</li>
-                  <li class="day-temp">
-                    16<span class="day-degrees">°C</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="icon">
-                <img src="src/Sun-cloud.png" alt="sun cloud" />
-              </div>
-            </div>
-            <div class="day">
-              <div class="info">
-                <ul>
-                  <li>Monday</li>
-                  <li class="day-temp">
-                    16<span class="day-degrees">°C</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="icon">
-                <img src="src/Sun-cloud.png" alt="sun cloud" />
-              </div>
-            </div>
-            <div class="day">
-              <div class="info">
-                <ul>
-                  <li>Monday</li>
-                  <li class="day-temp">
-                    16<span class="day-degrees">°C</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="icon">
-                <img src="src/Sun-cloud.png" alt="sun cloud" />
-              </div>
-            </div>
-            <div class="day">
-              <div class="info">
-                <ul>
-                  <li>Monday</li>
-                  <li class="day-temp">
-                    16<span class="day-degrees">°C</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="icon">
-                <img src="src/Sun-cloud.png" alt="sun cloud" />
-              </div>
-            </div>
-            <div class="day">
-              <div class="info">
-                <ul>
-                  <li>Monday</li>
-                  <li class="day-temp">
-                    16<span class="day-degrees">°C</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="icon">
-                <img src="src/Sun-cloud.png" alt="sun cloud" />
-              </div>
-            </div>
-            <div class="day">
-              <div class="info">
-                <ul>
-                  <li>Monday</li>
-                  <li class="day-temp">
-                    16<span class="day-degrees">°C</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="icon">
-                <img src="src/Sun-cloud.png" alt="sun cloud" />
-              </div>
+            <div id="weather-icon-container">
+<img src="src/Sun-cloud.png" alt="sun cloud" />
             </div>
           </div>
         </div>
-        <a href="https://github.com/Larlar03/weather-app"
-          >Weather App Github Repo</a
-        >
+        <!--Third Row-->
+        <div class="row" id="forecast-container">
+          <div class="col-2" id="forecast-day">
+              <h4>Mon</h4>
+               <img src="src/Sun-cloud-green.png" alt="sun cloud" />
+              <ul>
+                <li class="forecast-high">16<span class="day-degrees">°</span> </li>
+                <li class="forecast-low">17<span class="day-degrees">°</span></li>
+              </ul>
+          </div>
+          <div class="col-2" id="forecast-day">
+              <h4>Tue</h4>
+               <img src="src/Sun-cloud-green.png" alt="sun cloud" />
+              <ul>
+                <li class="forecast-high">16<span class="day-degrees">°</span> </li>
+                <li class="forecast-low">17<span class="day-degrees">°</span></li>
+              </ul>
+          </div>
+          <div class="col-2" id="forecast-day">
+              <h4>Wed</h4>
+               <img src="src/Sun-cloud-green.png" alt="sun cloud" />
+              <ul>
+                <li class="forecast-high">16<span class="day-degrees">°</span> </li>
+                <li class="forecast-low">17<span class="day-degrees">°</span></li>
+              </ul>
+          </div>
+          <div class="col-2" id="forecast-day">
+              <h4>Thu</h4>
+               <img src="src/Sun-cloud-green.png" alt="sun cloud" />
+              <ul>
+                <li class="forecast-high">16<span class="day-degrees">°</span> </li>
+                <li class="forecast-low">17<span class="day-degrees">°</span></li>
+              </ul>
+          </div>
+          <div class="col-2" id="forecast-day">
+              <h4>Fri</h4>
+               <img src="src/Sun-cloud-green.png" alt="sun cloud" />
+              <ul>
+                <li class="forecast-high">16<span class="day-degrees">°</span> </li>
+                <li class="forecast-low">17<span class="day-degrees">°</span></li>
+              </ul>
+          </div>
+          <div class="col-2" id="forecast-day">
+              <h4>Sat</h4>
+               <img src="src/Sun-cloud-green.png" alt="sun cloud" />
+              <ul>
+                <li class="forecast-high">16<span class="day-degrees">°</span> </li>
+                <li class="forecast-low">17<span class="day-degrees">°</span></li>
+              </ul>
+          </div>
+        </div>
+
       </div>
     </main>
-
     <script src="src/script.js"></script>
   </body>
 </html>

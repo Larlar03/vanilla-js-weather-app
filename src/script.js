@@ -21,7 +21,7 @@ function formatDate(date) {
   ];
   let day = days[now.getDay()];
 
-  return `${day} <br /> ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
 
 let now = new Date();
@@ -34,9 +34,11 @@ function displayCurrentWeather(response) {
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = response.data.wind.speed;
-  document.querySelector("#description").innerHTML =
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `${response.data.main.humidity}%`;
+  document.querySelector("#wind").innerHTML = `${response.data.wind.speed}km/h`;
+  document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].main;
 }
 
@@ -49,12 +51,12 @@ function searchCity(city) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let city = document.querySelector("#search-text-input").value;
+  let city = document.querySelector("#search-input").value;
   searchCity(city);
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", handleSubmit);
 
 /*Celsius & Fahrenheit*/
 
