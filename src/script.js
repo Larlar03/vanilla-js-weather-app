@@ -28,6 +28,20 @@ let now = new Date();
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = formatDate(now);
 
+function changeBackground() {
+  let container = document.querySelector("body");
+  let time = now.getHours();
+  if (time < 18) {
+    container.style.background =
+      "linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)";
+  } else {
+    container.style.background =
+      "radial-gradient(circle at 0.4% -0.6%, rgb(143, 170, 210) 0%, rgb(255, 177, 177) 90%)";
+  }
+}
+
+changeBackground();
+
 /*City Search API & Display Temperature*/
 function displayCurrentWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
