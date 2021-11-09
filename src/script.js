@@ -28,6 +28,7 @@ let now = new Date();
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = formatDate(now);
 
+/*Day & Night Background*/
 function changeBackground() {
   let container = document.querySelector("body");
   let time = now.getHours();
@@ -42,7 +43,7 @@ function changeBackground() {
 
 changeBackground();
 
-/*City Search API & Display Temperature*/
+/*City Search & Display Current Temperature*/
 function displayCurrentWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
@@ -69,7 +70,12 @@ function displayCurrentWeather(response) {
   document.querySelector("#temp-min").innerHTML = Math.round(
     response.data.main.temp_min
   );
+
+  celsiusTemperature = response.data.main.temp;
 }
+
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", handleSubmit);
 
 function searchCity(city) {
   let apiKey = "76261526781005dcd8b27ca5524074f5";
@@ -84,34 +90,17 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-let searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", handleSubmit);
+/*Sets Default Page Loading City to Birmingham by using City Id*/
+function searchCityById(cityId) {
+  let apiKey = "76261526781005dcd8b27ca5524074f5";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&appid=${apiKey}`;
 
-/*Celsius & Fahrenheit*/
-
-function changeToFahrenheit(event) {
-  event.preventDefault;
-  let temperatureElement = document.querySelector("#current-temp");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  let fahrenheit = Math.round((temperature * 9) / 5 + 32);
-
-  let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = `${fahrenheit}`;
+  axios.get(apiUrl).then(displayCurrentWeather);
 }
 
-function changeToCelsius(event) {
-  event.preventDefault;
-  let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = 18;
-}
+searchCityById(2655603);
 
-let celsiusLink = document.querySelector(".celsius-link");
-let fahrenheitLink = document.querySelector(".fahrenheit-link");
-
-fahrenheitLink.addEventListener("click", changeToFahrenheit);
-celsiusLink.addEventListener("click", changeToCelsius);
-
+/*Displays Weather of Computer Location Coordinates*/
 function searchLocation(position) {
   let apiKey = "76261526781005dcd8b27ca5524074f5";
   let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
@@ -127,4 +116,32 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCity("London");
+/*Celsius & Fahrenheit Conversion*/
+function changeToFahrenheit(event) {
+  event.preventDefault;
+  let currentTemp = document.querySelector("#current-temp");
+  let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
+  currentTemp.innerHTML = `${fahrenheit}`;
+
+  // Remove active class from celsius link & add to fahrenheit link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+let celsiusTemperature = null;
+
+function changeToCelsius(event) {
+  event.preventDefault;
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  // Remove active class from F link & add to C link
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+
+let celsiusLink = document.querySelector(".celsius-link");
+let fahrenheitLink = document.querySelector(".fahrenheit-link");
+
+fahrenheitLink.addEventListener("click", changeToFahrenheit);
+celsiusLink.addEventListener("click", changeToCelsius);

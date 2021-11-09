@@ -19,10 +19,12 @@ body {
 
         button {
           margin-left: 5px;
-
           background-color: white;
           border-color: #b2afb6;
           color: #b2afb6;
+          &:hover {
+            color: #4361ee;
+          }
         }
       }
     }
@@ -92,11 +94,20 @@ body {
                 a.fahrenheit-link {
                   text-decoration: none;
                   color: #7c92f4;
+                  &:hover {
+                    color: #ff5d73;
+                  }
                 }
 
                 a.celsius-link {
                   text-decoration: none;
-                  color: #4361ee;
+                  color: #7c92f4;
+                  &:hover {
+                    color: #ff5d73;
+                  }
+                }
+                .active {
+                  color: #4361ee !important;
                 }
               }
             }
@@ -109,7 +120,7 @@ body {
           flex-flow: column nowrap;
           align-items: flex-end;
           text-align: right;
-          margin-top: 170px;
+          margin-top: 165px;
           ul {
             list-style: none;
             padding: 0;
@@ -133,7 +144,7 @@ body {
       #forecast-container {
         width: 100%;
         margin: 0 auto;
-        padding: 10px 0;
+        padding: 10px 0 20px 0;
         display: flex;
         flex-flow: row nowrap;
         #forecast-day {
