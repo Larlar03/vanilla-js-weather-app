@@ -1,4 +1,4 @@
-/*Current Time & Day*/
+// Current time & day
 function formatDate(date) {
   let hours = now.getHours();
   if (hours < 10) {
@@ -28,7 +28,7 @@ let now = new Date();
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = formatDate(now);
 
-/*Day & Night Background*/
+// Day & night background
 function changeBackground() {
   let container = document.querySelector("body");
   let time = now.getHours();
@@ -43,7 +43,7 @@ function changeBackground() {
 
 changeBackground();
 
-/*City Search & Display Current Temperature*/
+// City search & sisplay current temperature*/
 function displayCurrentWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
@@ -90,7 +90,7 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-/*Sets Default Page Loading City to Birmingham by using City Id*/
+// Sets default page city to Birmingham by using city id api url
 function searchCityById(cityId) {
   let apiKey = "76261526781005dcd8b27ca5524074f5";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&appid=${apiKey}`;
@@ -100,7 +100,7 @@ function searchCityById(cityId) {
 
 searchCityById(2655603);
 
-/*Displays Weather of Computer Location Coordinates*/
+// Displays weather of computer location coordinates
 function searchLocation(position) {
   let apiKey = "76261526781005dcd8b27ca5524074f5";
   let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
@@ -116,7 +116,7 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-/*Celsius & Fahrenheit Conversion*/
+// Celsius & fahrenheit conversion
 function changeToFahrenheit(event) {
   event.preventDefault;
   let currentTemp = document.querySelector("#current-temp");
