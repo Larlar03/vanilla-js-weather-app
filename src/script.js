@@ -46,7 +46,9 @@ changeBackground();
 // Current temperature*/
 function displayCurrentWeather(response) {
   // City name
-  document.querySelector("#city").innerHTML = response.data.name;
+  let cityName = response.data.name;
+  let countryName = response.data.sys.country;
+  document.querySelector("#city").innerHTML = `${cityName}, ${countryName}`;
   // Current temp
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -130,6 +132,7 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
   axios.get(apiUrl).then(displayCurrentWeather);
+  console.log(apiUrl);
 }
 
 function handleSubmit(event) {
