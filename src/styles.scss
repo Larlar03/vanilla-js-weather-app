@@ -10,10 +10,19 @@ body {
     text-align: center;
     margin: 20px auto 0 auto;
     bottom: 0;
+    font-size: 0.8rem;
+
+    a {
+      color: #4361ee;
+      text-decoration: none;
+      &:hover {
+        color: #ff5d73;
+      }
+    }
   }
 
   main {
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto;
     .form-container {
       margin: 40px auto;
@@ -151,7 +160,7 @@ body {
       #forecast-container {
         width: 100%;
         margin: 0 auto;
-        padding: 10px 0 20px 0;
+        padding: 5px 0 20px 0;
         display: flex;
         flex-flow: row nowrap;
         #forecast-day {
@@ -168,7 +177,7 @@ body {
           }
           img {
             margin: 5px 0;
-            width: 30px;
+            width: 45px;
           }
           ul {
             list-style: none;
@@ -178,7 +187,7 @@ body {
             font-size: 0.9rem;
             li {
               display: inline;
-              padding: 1px;
+
               .max-degree {
                 display: inline-block;
                 font-size: 0.7rem;
@@ -198,9 +207,11 @@ body {
             }
             #temp-max {
               color: #4361ee;
+              font-weight: 600;
             }
             #temp-min {
               color: #7c92f4;
+              font-weight: 600;
             }
           }
         }
