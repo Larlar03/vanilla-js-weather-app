@@ -32,7 +32,7 @@ currentDate.innerHTML = formatDate(now);
 function changeBackground() {
   let container = document.querySelector("body");
   let time = now.getHours();
-  if (time < 18) {
+  if (time < 17) {
     container.style.background =
       "linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)";
   } else {
