@@ -7,4 +7,4 @@ The user can type in any location in the world and get the current weather data,
 The app was designed in Figma and coded in HTML, SCSS & JavaScript and is responsive with a desktop and mobile design.
 
 ## Link
-https://gracious-heyrovsky-0dc796.netlify.app
+https://vanilla-js-weather.netlify.app
