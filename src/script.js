@@ -67,7 +67,7 @@ function displayCurrentWeather(response) {
     .querySelector("#current-icon")
     .setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
   // Setting the alt of the img to the weather description
   document
@@ -97,7 +97,7 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col-2" id="forecast-day">
               <h4>${formatDay(forecastDay.dt)}</h4>
-               <img src="http://openweathermap.org/img/wn/${
+               <img src="https://openweathermap.org/img/wn/${
                  forecastDay.weather[0].icon
                }@2x.png" alt="${forecastDay.weather.description}" />
               <ul>
@@ -154,7 +154,7 @@ searchCityById(2655603);
 // Displays weather of computer location coordinates
 function searchLocation(position) {
   let apiKey = "69faa246958c7e8b9f28cdf549e266bf";
-  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayCurrentWeather);
 }
