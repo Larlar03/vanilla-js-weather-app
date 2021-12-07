@@ -61,7 +61,7 @@ function displayCurrentWeather(response) {
   document.querySelector("#wind").innerHTML = `${response.data.wind.speed} m/s`;
   // Weather description
   document.querySelector("#weather-description").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
   //Weather icon
   document
     .querySelector("#current-icon")
