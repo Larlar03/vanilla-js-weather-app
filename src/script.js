@@ -118,7 +118,7 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "349a825991e0b08827174146bcc6c8e0";
+  let apiKey = "69faa246958c7e8b9f28cdf549e266bf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
@@ -128,7 +128,7 @@ let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", handleSubmit);
 
 function searchCity(city) {
-  let apiKey = "349a825991e0b08827174146bcc6c8e0";
+  let apiKey = "69faa246958c7e8b9f28cdf549e266bf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
   axios.get(apiUrl).then(displayCurrentWeather);
@@ -143,7 +143,7 @@ function handleSubmit(event) {
 
 // Sets default page city to Birmingham by using city id api url
 function searchCityById(cityId) {
-  let apiKey = "349a825991e0b08827174146bcc6c8e0";
+  let apiKey = "69faa246958c7e8b9f28cdf549e266bf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&appid=${apiKey}`;
 
   axios.get(apiUrl).then(displayCurrentWeather);
@@ -153,7 +153,7 @@ searchCityById(2655603);
 
 // Displays weather of computer location coordinates
 function searchLocation(position) {
-  let apiKey = "349a825991e0b08827174146bcc6c8e0";
+  let apiKey = "69faa246958c7e8b9f28cdf549e266bf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayCurrentWeather);
